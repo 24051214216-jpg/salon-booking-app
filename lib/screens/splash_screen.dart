@@ -24,7 +24,7 @@ class SplashScreen extends StatelessWidget {
                 const Icon(Icons.content_cut, color: Colors.white, size: 48),
                 const SizedBox(height: 16),
                 Text(
-                  'Lumière',
+                  'Pretty Salon',
                   style: AppTextStyles.display.copyWith(
                     color: Colors.white,
                     fontSize: 38,
@@ -32,7 +32,7 @@ class SplashScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Booking salon jadi lebih tenang',
+                  'Booking salon jadi lebih mudah',
                   style: AppTextStyles.body.copyWith(color: Colors.white70),
                 ),
                 const SizedBox(height: 40),
