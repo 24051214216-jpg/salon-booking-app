@@ -33,10 +33,9 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            // ---------- Header Image + Overlay ----------
+            // Header Image
             Stack(
               children: [
-                // Cover
                 Container(
                   height: 220,
                   width: double.infinity,
@@ -47,7 +46,6 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
                     color: AppColors.rose,
                   ),
                 ),
-                // Tombol back
                 Positioned(
                   top: 12,
                   left: 12,
@@ -56,7 +54,6 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
                     onTap: () => Navigator.pop(context),
                   ),
                 ),
-                // Tombol favorite & share
                 Positioned(
                   top: 12,
                   right: 12,
@@ -71,7 +68,6 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
                     ],
                   ),
                 ),
-                // Rating badge
                 Positioned(
                   bottom: 12,
                   right: 12,
@@ -107,11 +103,10 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // ---------- Nama & Info ----------
-                  Text('Glow Beauty Salon', style: AppTextStyles.display),
+                  Text('Pretty Salon', style: AppTextStyles.display),
                   const SizedBox(height: 4),
                   Text(
-                    'Haircuts, Make Up, Shaving, Massage',
+                    'Haircuts, Styling, Coloring, Make Up',
                     style: AppTextStyles.body,
                   ),
                   const SizedBox(height: 12),
@@ -141,14 +136,14 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
                       ),
                       const SizedBox(width: 6),
                       Text(
-                        '15 min • 1.5km • Mon - Sun | 11am - 11pm',
+                        '15 min - 1.5km - Mon - Sun | 09am - 09pm',
                         style: AppTextStyles.caption,
                       ),
                     ],
                   ),
                   const SizedBox(height: 18),
 
-                  // ---------- Quick Actions ----------
+                  // Quick Actions
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: const [
@@ -164,7 +159,6 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
                   ),
                   const SizedBox(height: 20),
 
-                  // ---------- Tab Pill ----------
                   TabPill(
                     tabs: _tabs,
                     selectedIndex: _tabIndex,
@@ -174,7 +168,6 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
                   const Divider(color: AppColors.hairline, height: 1),
                   const SizedBox(height: 16),
 
-                  // ---------- Konten Tab ----------
                   _buildTabContent(),
                   const SizedBox(height: 24),
                 ],
@@ -183,7 +176,6 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
           ],
         ),
       ),
-      // Tombol Book Appointment di bawah
       bottomNavigationBar: Container(
         padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
         decoration: const BoxDecoration(
@@ -193,7 +185,7 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
         child: SafeArea(
           top: false,
           child: CustomButton(
-            label: 'Book Appointment',
+            label: 'Booking Sekarang',
             onPressed: () =>
                 Navigator.pushNamed(context, AppRoutes.bookingForm),
           ),
@@ -217,14 +209,16 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
     }
   }
 
-  // ---------- TAB: Services ----------
   Widget _servicesTab() {
     final items = [
-      ('Hair Cut', '20 Types', 'Rp 75.000'),
-      ('Hair Coloring', '12 Types', 'Rp 250.000'),
-      ('Hair Wash', '08 Types', 'Rp 60.000'),
-      ('Hair Spa', '06 Types', 'Rp 120.000'),
-      ('Facial Treatment', '10 Types', 'Rp 150.000'),
+      ('Cuci rambut', 'Perawatan Dasar', 'Rp 15.000'),
+      ('Gunting pria dewasa', 'Perawatan Dasar', 'Rp 25.000'),
+      ('Gunting wanita dewasa', 'Perawatan Dasar', 'Rp 30.000'),
+      ('Catok', 'Styling Rambut', 'Rp 30.000'),
+      ('Creambath tradisional', 'Perawatan Rambut', 'Rp 60.000'),
+      ('Hair spa', 'Perawatan Rambut', 'Rp 75.000'),
+      ('Pewarnaan wanita', 'Pewarnaan Rambut', 'Rp 150.000'),
+      ('Make up', 'Make Up', 'Rp 100.000'),
     ];
 
     return Column(
@@ -234,9 +228,12 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Services (${items.length})', style: AppTextStyles.subheading),
-            Text(
-              'Lihat semua',
-              style: AppTextStyles.label.copyWith(color: AppColors.rose),
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(context, AppRoutes.services),
+              child: Text(
+                'Lihat semua',
+                style: AppTextStyles.label.copyWith(color: AppColors.rose),
+              ),
             ),
           ],
         ),
@@ -246,7 +243,6 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
     );
   }
 
-  // ---------- TAB: Photo ----------
   Widget _photoTab() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -293,11 +289,11 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
     );
   }
 
-  // ---------- TAB: Package ----------
   Widget _packageTab() {
     final packages = [
-      ('Hair Cutting & Hair Stylist', 'Spesial Offer Package', 'Rp 125.000'),
-      ('Beauty Make Up', 'Spesial Offer Package', 'Rp 140.000'),
+      ('Paket Gunting + Cuci', 'Pria atau Wanita dewasa', 'Rp 30.000'),
+      ('Paket Catok + Cuci', 'Termasuk blow', 'Rp 40.000'),
+      ('Paket Creambath + Catok', 'Perawatan lengkap', 'Rp 90.000'),
     ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -340,7 +336,8 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
                 SizedBox(
                   height: 32,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () =>
+                        Navigator.pushNamed(context, AppRoutes.bookingForm),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.rose,
                       elevation: 0,
@@ -365,7 +362,6 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
     );
   }
 
-  // ---------- TAB: Review ----------
   Widget _reviewTab() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -408,18 +404,17 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
         _ReviewItem(
           name: 'Dale Thiel',
           rating: '5.0',
-          comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+          comment: 'Pelayanan ramah, hasil potongan rapi dan sesuai request. Recommended!',
         ),
         _ReviewItem(
           name: 'Katheryn Murphy',
           rating: '4.8',
-          comment: 'Pelayanan ramah, hasil potongan rapi dan sesuai request. Recommended!',
+          comment: 'Harga terjangkau, tempat bersih, dan hasil memuaskan.',
         ),
       ],
     );
   }
 
-  // ---------- TAB: About ----------
   Widget _aboutTab() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -427,28 +422,25 @@ class _SalonDetailScreenState extends State<SalonDetailScreen> {
         Text('About Us', style: AppTextStyles.subheading),
         const SizedBox(height: 8),
         Text(
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, '
-          'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+          'Pretty Salon adalah salon kecantikan yang menyediakan berbagai '
+          'layanan perawatan rambut, styling, pewarnaan, dan make up dengan '
+          'harga terjangkau dan kualitas terbaik.',
           style: AppTextStyles.body,
         ),
         const SizedBox(height: 20),
         Text('Working Hours', style: AppTextStyles.subheading),
         const SizedBox(height: 8),
-        const _WorkingHourRow(day: 'Monday', hour: '11:00 - 22:00'),
-        const _WorkingHourRow(day: 'Tuesday', hour: '11:00 - 22:00'),
-        const _WorkingHourRow(day: 'Wednesday', hour: '11:00 - 22:00'),
-        const _WorkingHourRow(day: 'Thursday', hour: '11:00 - 22:00'),
-        const _WorkingHourRow(day: 'Friday', hour: '11:00 - 23:00'),
-        const _WorkingHourRow(day: 'Saturday', hour: '10:00 - 23:00'),
-        const _WorkingHourRow(day: 'Sunday', hour: '10:00 - 21:00'),
+        const _WorkingHourRow(day: 'Monday', hour: '09:00 - 21:00'),
+        const _WorkingHourRow(day: 'Tuesday', hour: '09:00 - 21:00'),
+        const _WorkingHourRow(day: 'Wednesday', hour: '09:00 - 21:00'),
+        const _WorkingHourRow(day: 'Thursday', hour: '09:00 - 21:00'),
+        const _WorkingHourRow(day: 'Friday', hour: '09:00 - 21:00'),
+        const _WorkingHourRow(day: 'Saturday', hour: '09:00 - 22:00'),
+        const _WorkingHourRow(day: 'Sunday', hour: '09:00 - 20:00'),
       ],
     );
   }
 }
-
-// =====================================================
-// Komponen pendukung
-// =====================================================
 
 class _CircleIconButton extends StatelessWidget {
   final IconData icon;

@@ -108,7 +108,7 @@ class HomeScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      'LIMITED TIME',
+                      'PROMO HARI INI',
                       style: AppTextStyles.caption.copyWith(
                         color: Colors.white,
                         fontWeight: FontWeight.w700,
@@ -119,7 +119,7 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Diskon s.d 40%',
+                        'Diskon s.d 20%',
                         style: AppTextStyles.display.copyWith(
                           color: Colors.white,
                         ),
@@ -147,39 +147,43 @@ class HomeScreen extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: const [
-                  _ServiceChip(icon: Icons.content_cut, label: 'Haircut'),
-                  _ServiceChip(icon: Icons.palette, label: 'Coloring'),
-                  _ServiceChip(icon: Icons.face, label: 'Facial'),
-                  _ServiceChip(icon: Icons.spa, label: 'Spa'),
-                  _ServiceChip(icon: Icons.brush, label: 'Nail'),
+                  _ServiceChip(icon: Icons.content_cut, label: 'Gunting'),
+                  _ServiceChip(icon: Icons.water_drop, label: 'Cuci'),
+                  _ServiceChip(icon: Icons.brush, label: 'Catok'),
+                  _ServiceChip(icon: Icons.spa, label: 'Creambath'),
+                  _ServiceChip(icon: Icons.palette, label: 'Warnai'),
+                  _ServiceChip(
+                    icon: Icons.face_retouching_natural,
+                    label: 'Makeup',
+                  ),
                 ],
               ),
             ),
 
             SectionHeader(
-              title: 'Top Rated Salons',
+              title: 'Salon Terpopuler',
               actionLabel: 'Lihat semua',
               onAction: () => Navigator.pushNamed(context, AppRoutes.services),
             ),
             _SalonListCard(
-              name: 'Glow Beauty Salon',
+              name: 'Pretty Salon',
               address: 'Jl. Melati No. 10, Denpasar',
               rating: '4.8',
-              price: 'Rp 75.000',
+              price: 'Rp 15.000',
               onTap: () => Navigator.pushNamed(context, AppRoutes.salonDetail),
             ),
             _SalonListCard(
-              name: 'Elegant Hair Studio',
+              name: 'Pretty Salon Cabang 2',
               address: 'Jl. Kenanga No. 5, Denpasar',
               rating: '4.6',
-              price: 'Rp 250.000',
+              price: 'Rp 20.000',
               onTap: () => Navigator.pushNamed(context, AppRoutes.salonDetail),
             ),
             _SalonListCard(
-              name: 'Pure Skin Care',
+              name: 'Pretty Salon Cabang 3',
               address: 'Jl. Anggrek No. 22, Denpasar',
               rating: '4.9',
-              price: 'Rp 150.000',
+              price: 'Rp 15.000',
               onTap: () => Navigator.pushNamed(context, AppRoutes.salonDetail),
             ),
           ],

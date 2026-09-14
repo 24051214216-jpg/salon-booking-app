@@ -17,7 +17,7 @@ class AppDrawer extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 32, 24, 24),
-              child: Text('Lumière Salon', style: AppTextStyles.logotype),
+              child: Text('Pretty Salon', style: AppTextStyles.logotype),
             ),
             const Divider(height: 1, indent: 24, endIndent: 24),
             const SizedBox(height: 8),

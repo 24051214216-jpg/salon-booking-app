@@ -16,7 +16,6 @@ class AboutScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          // Banner
           Container(
             height: 160,
             decoration: BoxDecoration(
@@ -30,17 +29,16 @@ class AboutScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          Text('Lumière Salon', style: AppTextStyles.display),
+          Text('Pretty Salon', style: AppTextStyles.display),
           const SizedBox(height: 8),
           Text(
-            'Lumière Salon adalah platform booking salon yang menghubungkan '
+            'Pretty Salon adalah platform booking salon yang menghubungkan '
             'kamu dengan salon dan stylist terbaik di kotamu. Kami percaya '
             'perawatan diri harus mudah, tenang, dan menyenangkan.',
             style: AppTextStyles.body,
           ),
           const SizedBox(height: 24),
 
-          // Statistik singkat
           Row(
             children: const [
               Expanded(
@@ -58,7 +56,6 @@ class AboutScreen extends StatelessWidget {
           ),
           const SizedBox(height: 24),
 
-          // Visi & Misi
           Text('Visi', style: AppTextStyles.heading),
           const SizedBox(height: 6),
           Text(
@@ -74,11 +71,10 @@ class AboutScreen extends StatelessWidget {
           const _BulletPoint('Mendukung pertumbuhan bisnis salon lokal.'),
           const SizedBox(height: 24),
 
-          // Info kontak singkat
           Text('Hubungi Kami', style: AppTextStyles.heading),
           const SizedBox(height: 8),
           const _InfoRow(icon: Icons.call, label: '+62 812-3456-7890'),
-          const _InfoRow(icon: Icons.email, label: 'hello@lumiere.id'),
+          const _InfoRow(icon: Icons.email, label: 'hello@prettysalon.id'),
           const _InfoRow(
             icon: Icons.location_on,
             label: 'Jl. Melati No. 10, Denpasar',
